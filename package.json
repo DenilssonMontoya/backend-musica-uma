@@ -1,0 +1,22 @@
+{
+  "name": "backend-musica-uma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DenilssonMontoya/backend-musica-uma.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DenilssonMontoya/backend-musica-uma/issues"
+  },
+  "homepage": "https://github.com/DenilssonMontoya/backend-musica-uma#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

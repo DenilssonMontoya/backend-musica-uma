@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt')
 
-const { Usuario } = require ('../models')
+const { usuarioUMA } = require ('../models')
 
 class UserController {
 
@@ -9,11 +9,11 @@ class UserController {
         let payload = req.body
 
         const salt = bcrypt.genSaltSync(10)
-        let newPassword = bcrypt.hashSync(payload.contrasena, salt)
+        let newPassword = bcrypt.hashSync(payload.contrasenia, salt)
 
-        payload.contrasena=newPassword
+        payload.contrasenia=newPassword
 
-        Usuario.create(payload)
+        usuarioUMA.create(payload)
             .then((data) => {
                 res.send(data)
             })
@@ -29,13 +29,13 @@ class UserController {
 
         let username = req.body.username
 
-        let dbuser = Usuario.findOne({
+        let dbuser = usuarioUMA.findOne({
             where: {
                 nombreUsuario: username
             }
         }).then((data) => {
 
-            if (bcrypt.compareSync(password, data.contrasena)) {
+            if (bcrypt.compareSync(password, data.contrasenia)) {
                 res.json(data)
             } else {
                 console.log("contrasenas distintas")

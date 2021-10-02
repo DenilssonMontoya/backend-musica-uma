@@ -23,7 +23,7 @@ app.put('/actualizarAlumno', jwt_middleware, AlumnoController.update)
 app.delete('/eliminarAlumno', jwt_middleware, AlumnoController.delete)
 app.get('/listarTareas', jwt_middleware, TareaController.findAll)
 app.get('/listarSesiones', jwt_middleware, SesionController.findAll)
-app.get('/login', jwt_middleware, UserController.login)
+app.post('/login', UserController.login)
 app.post('/auth', AuthController.auth)
 app.post('/users', UserController.create)
 

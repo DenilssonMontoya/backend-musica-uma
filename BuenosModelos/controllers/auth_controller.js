@@ -14,12 +14,12 @@ class AuthController {
 
         let dbuser = Usuario.findOne({
             where: {
-                nombreUsuario: username
+                nombre_usuario: username
             }
         }).then((data) => {
 
             if (bcrypt.compareSync(password, data.contrasena)) {
-                let payload = { username: username, role: data.tipoUsuario }
+                let payload = { username: username, role: data.tipo_usuario }
                 const token = jwt.sign(payload, secret, {expiresIn: '1800s'})
                 res.json(token)
             } else {

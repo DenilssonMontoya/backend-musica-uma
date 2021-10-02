@@ -9,7 +9,7 @@ class UserController {
         let payload = req.body
 
         const salt = bcrypt.genSaltSync(10)
-        let newPassword = bcrypt.hashSync(payload.password, salt)
+        let newPassword = bcrypt.hashSync(payload.contrasena, salt)
 
         payload.contrasena=newPassword
 

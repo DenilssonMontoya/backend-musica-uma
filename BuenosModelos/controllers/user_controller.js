@@ -25,7 +25,7 @@ class UserController {
     }
 
 
-    static  (req, res) {
+    static login (req, res) {
 
         let username = req.body.username
 

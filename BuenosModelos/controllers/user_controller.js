@@ -28,7 +28,8 @@ class UserController {
     static login (req, res) {
 
         let username = req.body.username
-
+        let password = req.body.password
+        
         let dbuser = usuarioUMA.findOne({
             where: {
                 nombreUsuario: username

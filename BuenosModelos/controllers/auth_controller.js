@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 
-const {Usuario} = require('../models')
+const {usuarioUMA} = require('../models')
 
 class AuthController {
 
@@ -12,14 +12,14 @@ class AuthController {
         let username = req.body.username
         let password = req.body.password
 
-        let dbuser = Usuario.findOne({
+        let dbuser = usuarioUMA.findOne({
             where: {
-                nombre_usuario: username
+                nombreUsuario: username
             }
         }).then((data) => {
 
-            if (bcrypt.compareSync(password, data.contrasena)) {
-                let payload = { username: username, role: data.tipo_usuario }
+            if (bcrypt.compareSync(password, data.contrasenia)) {
+                let payload = { username: username, role: data.tipo }
                 const token = jwt.sign(payload, secret, {expiresIn: '1800s'})
                 res.json(token)
             } else {
